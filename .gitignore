@@ -1,2 +1,6 @@
 *.class
 *.log
+target
+.git
+.idea
+project/target
