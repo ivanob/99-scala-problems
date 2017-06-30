@@ -55,4 +55,17 @@ object Lists {
     case x :: xs => if(x == xs.last) isPalindrome(xs.dropRight(1)) else false
     case Nil => true
   }
+
+  /**
+    * P07 (**) Flatten a nested list structure.
+    */
+  def flatten[A](l: List[A]): List[Any] = l match {
+    case x :: xs => x match {
+      case x:List[A] => flatten(x) ::: flatten(xs)
+      case x:A => List(x) ::: flatten(xs)
+    }
+    case Nil => List()
+  }
+
+  //def compress()
 }

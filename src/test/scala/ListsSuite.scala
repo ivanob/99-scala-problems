@@ -42,4 +42,10 @@ class ListsSuite extends FunSuite {
     assert(Lists.isPalindrome(List(1,1)) == true)
     assert(Lists.isPalindrome(List(1,2,2)) == false)
   }
+
+  test("P07 - Flatten a nested list structure.") {
+    assert(Lists.flatten(List(1,List(2,3))) == List(1,2,3))
+    assert(Lists.flatten(List(List(1),List(2,List(3)))) == List(1,2,3))
+    assert(Lists.flatten(List(1,2,3)) == List(1,2,3))
+  }
 }
