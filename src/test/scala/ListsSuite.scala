@@ -24,4 +24,22 @@ class ListsSuite extends FunSuite {
     assert(Lists.nth(2,List(1,2,3)) == Some(3))
     assert(Lists.nth(3,List(1,2,3)) == None)
   }
+
+  test("P04 - Find the number of elements of a list.") {
+    assert(Lists.length(List(1,2,3)) == 3)
+    assert(Lists.length(List(1)) == 1)
+    assert(Lists.length(List()) == 0)
+  }
+
+  test("P05 - Reverse a list.") {
+    assert(Lists.reverse(List(1,2,3)) == List(3,2,1))
+    assert(Lists.reverse(List(1)) == List(1))
+    assert(Lists.reverse(List()) == List())
+  }
+
+  test("P06 - Find out whether a list is a palindrome.") {
+    assert(Lists.isPalindrome(List(1,2,1)) == true)
+    assert(Lists.isPalindrome(List(1,1)) == true)
+    assert(Lists.isPalindrome(List(1,2,2)) == false)
+  }
 }

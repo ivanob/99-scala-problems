@@ -28,4 +28,31 @@ object Lists {
     }
     case Nil => None
   }
+
+  /**
+    * P04 (*) Find the number of elements of a list.
+    */
+  def length[A](l: List[A]): Int = l match {
+    case x :: Nil => 1
+    case x :: xs => 1 + length(xs)
+    case Nil => 0
+  }
+
+  /**
+    * P05 (*) Reverse a list.
+    * https://stackoverflow.com/questions/6566502/whats-the-difference-between-and-in-scala
+    */
+  def reverse[A](l: List[A]): List[A] = l match {
+    case x :: xs => reverse(xs) ::: List(x)
+    case Nil => List()
+  }
+
+  /**
+    * P06 (*) Find out whether a list is a palindrome.
+    */
+  def isPalindrome[A](l: List[A]): Boolean = l match {
+    case x :: Nil => true
+    case x :: xs => if(x == xs.last) isPalindrome(xs.dropRight(1)) else false
+    case Nil => true
+  }
 }
