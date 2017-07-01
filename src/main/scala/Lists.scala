@@ -67,5 +67,14 @@ object Lists {
     case Nil => List()
   }
 
-  //def compress()
+  /**
+    * P08 (**) Eliminate consecutive duplicates of list elements.
+    */
+  def compress(l: List[Symbol]): List[Symbol] = {
+    def go(prev: Symbol, l: List[Symbol]): List[Symbol] = l match {
+      case x :: xs => if(x!=prev) x::go(x,xs) else go(x, xs)
+      case Nil => Nil
+    }
+    go(null, l)
+  }
 }
