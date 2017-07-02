@@ -69,6 +69,7 @@ object Lists {
 
   /**
     * P08 (**) Eliminate consecutive duplicates of list elements.
+    * http://www.scala-lang.org/api/2.12.0/scala/Symbol.html
     */
   def compress(l: List[Symbol]): List[Symbol] = {
     def go(prev: Symbol, l: List[Symbol]): List[Symbol] = l match {
@@ -76,5 +77,38 @@ object Lists {
       case Nil => Nil
     }
     go(null, l)
+  }
+
+  /**
+    * P14 (*) Duplicate the elements of a list.
+    */
+  def duplicate(l:List[Symbol]): List[Symbol] = l match {
+    case x :: xs => x::x::duplicate(xs)
+    case Nil => Nil
+  }
+
+  def reproduceN(num: Int, sym: Symbol): List[Symbol] ={
+    if(num>0){
+      sym::reproduceN(num-1, sym)
+    } else Nil
+  }
+
+  /**
+    * P15 (**) Duplicate the elements of a list a given number of times.
+    */
+  def duplicateN(num: Int, l:List[Symbol]): List[Symbol] = l match {
+    case x :: xs => reproduceN(num, x) ::: duplicateN(num, xs)
+    case Nil => Nil
+  }
+
+  /**
+    * P16 (**) Drop every Nth element from a list.
+    */
+  def drop(num: Int, l:List[Symbol]): List[Symbol] = {
+    def go(num: Int, iter: Int, l:List[Symbol]): List[Symbol] = l match {
+      case x :: xs => if(iter==1) go(num,num,xs) else x::go(num,iter-1,xs)
+      case Nil => Nil
+    }
+    go(num, num, l)
   }
 }

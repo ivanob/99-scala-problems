@@ -54,4 +54,20 @@ class ListsSuite extends FunSuite {
     assert(Lists.compress(List('a,'b,'b,'c)) == List('a,'b,'c))
     assert(Lists.compress(List('a)) == List('a))
   }
+
+  test("P14 - Duplicate the elements of a list."){
+    assert(Lists.duplicate(List('a,'b,'c,'c,'d))==List('a,'a,'b,'b,'c,'c,'c,'c,'d,'d))
+    assert(Lists.duplicate(List('a))==List('a,'a))
+    assert(Lists.duplicate(List())==List())
+  }
+
+  test("P15 - Duplicate the elements of a list a given number of times."){
+    assert(Lists.duplicateN(3, List('a,'b,'c,'c,'d)) == List('a,'a,'a,'b,'b,'b,'c,'c,'c,'c,'c,'c,'d,'d,'d))
+    assert(Lists.duplicateN(0, List('a,'b,'c,'c,'d)) == List())
+  }
+
+  test("P16 - Drop every Nth element from a list."){
+    assert(Lists.drop(3, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == List('a,'b,'d,'e,'g,'h,'j,'k))
+    assert(Lists.drop(1, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == List())
+  }
 }
