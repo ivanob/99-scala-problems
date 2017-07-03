@@ -75,4 +75,9 @@ class ListsSuite extends FunSuite {
     assert(Lists.split(3, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == (List('a,'b,'c),List('d,'e,'f,'g,'h,'i,'j,'k)))
     assert(Lists.split(1, List('a,'b)) == (List('a),List('b)))
   }
+
+  test("P18 - Extract a slice from a list."){
+    assert(Lists.slice(3, 7, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == List('d,'e,'f,'g))
+    assert(Lists.slice(1, 2, List('a,'b,'c,'d)) == List('b))
+  }
 }

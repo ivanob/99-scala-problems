@@ -125,4 +125,18 @@ object Lists {
       (List(),List())
     }
   }
+
+  /**
+    * P18 (**) Extract a slice from a list.
+    */
+  def slice(init: Int, end: Int, l:List[Symbol]): List[Symbol] = {
+    def go(current: Int, init: Int, end: Int, l:List[Symbol]): List[Symbol] = l match {
+      case x :: xs => {
+        if(current>init && current<=end) x::go(current+1, init, end, xs)
+        else go(current+1, init, end, xs)
+      }
+      case Nil => Nil
+    }
+    go(1, init, end, l)
+  }
 }
