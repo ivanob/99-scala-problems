@@ -111,4 +111,18 @@ object Lists {
     }
     go(num, num, l)
   }
+
+  /**
+    * P17 (*) Split a list into two parts.
+    */
+  def split(num: Int, l:List[Symbol]): Pair[List[Symbol],List[Symbol]] = l match {
+    case x :: xs => {
+        val p = split(num-1,xs)
+        if(num>0) (x::p._1,p._2)
+        else (p._1,x::p._2)
+    }
+    case Nil => {
+      (List(),List())
+    }
+  }
 }

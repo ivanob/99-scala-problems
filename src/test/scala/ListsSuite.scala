@@ -70,4 +70,9 @@ class ListsSuite extends FunSuite {
     assert(Lists.drop(3, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == List('a,'b,'d,'e,'g,'h,'j,'k))
     assert(Lists.drop(1, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == List())
   }
+
+  test("P17 - Split a list into two parts."){
+    assert(Lists.split(3, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == (List('a,'b,'c),List('d,'e,'f,'g,'h,'i,'j,'k)))
+    assert(Lists.split(1, List('a,'b)) == (List('a),List('b)))
+  }
 }
