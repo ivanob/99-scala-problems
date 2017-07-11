@@ -139,4 +139,18 @@ object Lists {
     }
     go(1, init, end, l)
   }
+
+  /**
+    * P20 (*) Remove the Kth element from a list.
+    */
+  def removeAt(pos: Int, l: List[Symbol]): (List[Symbol], Symbol) = l match {
+    case x :: xs => {
+      val pair = removeAt(pos-1, xs)
+      if(pos==0) (pair._1, x)
+      else (x :: pair._1, pair._2)
+    }
+    case Nil => {
+      (Nil,null)
+    }
+  }
 }

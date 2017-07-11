@@ -80,4 +80,10 @@ class ListsSuite extends FunSuite {
     assert(Lists.slice(3, 7, List('a,'b,'c,'d,'e,'f,'g,'h,'i,'j,'k)) == List('d,'e,'f,'g))
     assert(Lists.slice(1, 2, List('a,'b,'c,'d)) == List('b))
   }
+
+  test("P20 - Remove the Kth element from a list."){
+    assert(Lists.removeAt(1, List('a, 'b, 'c, 'd)) == (List('a, 'c, 'd),'b))
+    assert(Lists.removeAt(0, List('a, 'b, 'c, 'd)) == (List('b, 'c, 'd),'a))
+    assert(Lists.removeAt(3, List('a, 'b, 'c, 'd)) == (List('a, 'b, 'c),'d))
+  }
 }
