@@ -92,4 +92,10 @@ class ListsSuite extends FunSuite {
     assert(Lists.insertAt('new, 0, List('a, 'b, 'c, 'd)) == List('new, 'a, 'b, 'c, 'd))
     assert(Lists.insertAt('new, 4, List('a, 'b, 'c, 'd)) == List('a, 'b, 'c, 'd, 'new))
   }
+
+  test("P22 - Create a list containing all integers within a given range."){
+    assert(Lists.range(4, 9) == List(4, 5, 6, 7, 8, 9))
+    assert(Lists.range(9, 9) == List(9))
+    assert(Lists.range(0, 2) == List(0, 1, 2))
+  }
 }

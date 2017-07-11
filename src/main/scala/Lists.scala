@@ -169,4 +169,13 @@ object Lists {
     }
   }
 
+  /**
+    * P22 (*) Create a list containing all integers within a given range.
+    */
+  def range(init: Int, end: Int): List[Int] = {
+    if(init==end) List(end)
+    else{
+      List(init) ::: range(init+1, end)
+    }
+  }
 }
