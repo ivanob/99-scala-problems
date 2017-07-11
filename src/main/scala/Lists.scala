@@ -153,4 +153,20 @@ object Lists {
       (Nil,null)
     }
   }
+
+  /**
+    * P21 (*) Insert an element at a given position into a list.
+    */
+  def insertAt(sym: Symbol, pos: Int, l: List[Symbol]): List[Symbol] = l match {
+    case x :: xs => {
+      val tail = insertAt(sym, pos-1, xs)
+      if(pos==0) sym :: x :: tail
+      else x :: tail
+    }
+    case Nil => {
+      if(pos>=0) List(sym)
+      else Nil
+    }
+  }
+
 }

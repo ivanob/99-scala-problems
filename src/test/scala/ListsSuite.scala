@@ -86,4 +86,10 @@ class ListsSuite extends FunSuite {
     assert(Lists.removeAt(0, List('a, 'b, 'c, 'd)) == (List('b, 'c, 'd),'a))
     assert(Lists.removeAt(3, List('a, 'b, 'c, 'd)) == (List('a, 'b, 'c),'d))
   }
+
+  test("P21 - Insert an element at a given position into a list."){
+    assert(Lists.insertAt('new, 1, List('a, 'b, 'c, 'd)) == List('a, 'new, 'b, 'c, 'd))
+    assert(Lists.insertAt('new, 0, List('a, 'b, 'c, 'd)) == List('new, 'a, 'b, 'c, 'd))
+    assert(Lists.insertAt('new, 4, List('a, 'b, 'c, 'd)) == List('a, 'b, 'c, 'd, 'new))
+  }
 }
