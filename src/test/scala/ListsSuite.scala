@@ -98,4 +98,8 @@ class ListsSuite extends FunSuite {
     assert(Lists.range(9, 9) == List(9))
     assert(Lists.range(0, 2) == List(0, 1, 2))
   }
+
+  test("P23 - Extract a given number of randomly selected elements from a list."){
+    assert(Lists.randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)).length == 4)
+  }
 }

@@ -178,4 +178,13 @@ object Lists {
       List(init) ::: range(init+1, end)
     }
   }
+
+  /**
+    * P23 (**) Extract a given number of randomly selected elements from a list.
+    */
+  val r = scala.util.Random
+  def randomSelect(numOfExtracts: Int, list: List[Symbol]): List[Symbol] = {
+    if(numOfExtracts==0) list
+    else randomSelect(numOfExtracts-1, removeAt(r.nextInt(numOfExtracts), list)._1)
+  }
 }
