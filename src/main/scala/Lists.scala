@@ -187,4 +187,12 @@ object Lists {
     if(numOfExtracts==0) list
     else randomSelect(numOfExtracts-1, removeAt(r.nextInt(numOfExtracts), list)._1)
   }
+
+  /**
+    * P24 (*) Lotto: Draw N different random numbers from the set 1..M.
+    */
+  def lotto(numDraws:Int, max:Int):List[Int] = {
+    if(numDraws==0) List()
+    else List(r.nextInt(max-1)+1) ::: lotto(numDraws-1, max)
+  }
 }

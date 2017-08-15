@@ -101,5 +101,10 @@ class ListsSuite extends FunSuite {
 
   test("P23 - Extract a given number of randomly selected elements from a list."){
     assert(Lists.randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)).length == 4)
+    //assert(Lists.randomSelect(3, List('a)).length == 4)
+  }
+
+  test("P24 - Lotto: Draw N different random numbers from the set 1..M."){
+    assert(Lists.lotto(6, 49).length == 6)
   }
 }
