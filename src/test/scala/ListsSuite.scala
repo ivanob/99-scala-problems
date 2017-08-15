@@ -109,4 +109,13 @@ class ListsSuite extends FunSuite {
     assert(Lists.lotto(6, 49).length == 6)
     assert(Lists.lotto(1, 1) == List(1))
   }
+
+  test("P25 - Generate a random permutation of the elements of a list."){
+    val permutation = Lists.randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
+    assert(permutation.contains('a) == true)
+    assert(permutation.contains('b) == true)
+    assert(permutation.contains('c) == true)
+    assert(permutation.contains('d) == true)
+    assert(permutation.contains('e) == true)
+  }
 }

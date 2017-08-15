@@ -185,7 +185,7 @@ object Lists {
   val r = scala.util.Random
   def randomSelect(numOfExtracts: Int, list: List[Symbol]): List[Symbol] = {
     if(numOfExtracts==0) list
-    else randomSelect(numOfExtracts-1, removeAt(r.nextInt(numOfExtracts), list)._1)
+    else randomSelect(numOfExtracts-1, removeAt(r.nextInt(list.length), list)._1)
   }
 
   /**
@@ -194,5 +194,16 @@ object Lists {
   def lotto(numDraws:Int, max:Int):List[Int] = {
     if(numDraws==0) List()
     else List(r.nextInt(max)+1) ::: lotto(numDraws-1, max)
+  }
+
+  /**
+    * P25 (*) Generate a random permutation of the elements of a list.
+    */
+  def randomPermute(list: List[Symbol]): List[Symbol] = list match {
+    case Nil => Nil
+    case xs => {
+      val rest = randomSelect(1, xs)
+      (xs diff rest) ::: randomPermute(rest)
+    }
   }
 }
