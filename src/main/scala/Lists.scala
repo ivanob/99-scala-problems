@@ -193,6 +193,6 @@ object Lists {
     */
   def lotto(numDraws:Int, max:Int):List[Int] = {
     if(numDraws==0) List()
-    else List(r.nextInt(max-1)+1) ::: lotto(numDraws-1, max)
+    else List(r.nextInt(max)+1) ::: lotto(numDraws-1, max)
   }
 }
