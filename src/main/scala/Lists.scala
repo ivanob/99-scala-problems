@@ -209,4 +209,11 @@ object Lists {
       (xs diff rest) ::: randomPermute(rest)
     }
   }
+
+  /**
+    * P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
+    */
+  def combinations(k:Int, list:List[Symbol]): List[List[Symbol]] = {
+    (list combinations k).toList
+  }
 }

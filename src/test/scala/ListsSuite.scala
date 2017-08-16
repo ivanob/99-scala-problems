@@ -118,4 +118,12 @@ class ListsSuite extends FunSuite {
     assert(permutation.contains('d) == true)
     assert(permutation.contains('e) == true)
   }
+
+  /**
+    * http://mathworld.wolfram.com/BinomialCoefficient.html
+    */
+  test("P26 - Generate the combinations of K distinct objects chosen from the N elements of a list."){
+    val combinations = Lists.combinations(3, List('a, 'b, 'c, 'd, 'e, 'f))
+    assert(combinations.length == 20)
+  }
 }
