@@ -125,5 +125,8 @@ class ListsSuite extends FunSuite {
   test("P26 - Generate the combinations of K distinct objects chosen from the N elements of a list."){
     val combinations = Lists.combinations(3, List('a, 'b, 'c, 'd, 'e, 'f))
     assert(combinations.length == 20)
+    assert(combinations.contains(List('a, 'b, 'c)))
+    assert(combinations.contains(List('a, 'b, 'd)))
+    assert(combinations.contains(List('a, 'b, 'e)))
   }
 }
