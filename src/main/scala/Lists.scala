@@ -220,11 +220,18 @@ object Lists {
   /**
     * P27 (**) Group the elements of a set into disjoint subsets.
     */
-  def group3(list: List[String]) = {
+  def group3(list: List[String]): List[List[List[String]]] = {
     (for {
       i <- list combinations 2
       j <- (list diff i) combinations 3
       k <- (list diff (i union j)) combinations 4
+    } yield List(i, j, k)).toList
+  }
+  def group(partitions: List[Int], list: List[String]): List[List[List[String]]] = {
+    (for {
+      i <- list combinations partitions(0)
+      j <- (list diff i) combinations(1)
+      k <- (list diff (i union j)) combinations(2)
     } yield List(i, j, k)).toList
   }
 }
