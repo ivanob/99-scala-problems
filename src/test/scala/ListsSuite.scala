@@ -155,4 +155,11 @@ class ListsSuite extends FunSuite {
     //Check that all sublists are different
     assert(combinations.distinct.size == combinations.size)
   }
+
+  test("P28 - Sorting a list of lists according to length of sublists."){
+    val sorted = Lists.lsort(List(List('a,'b,'c),List('d,'e),List('f)))
+    assert(sorted(0).length==1)
+    assert(sorted(1).length==2)
+    assert(sorted(2).length==3)
+  }
 }

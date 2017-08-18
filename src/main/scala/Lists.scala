@@ -234,4 +234,11 @@ object Lists {
       k <- (list diff (i union j)) combinations partitions(2)
     } yield List(i, j, k)).toList
   }
+
+  /**
+    * P28 (**) Sorting a list of lists according to length of sublists.
+    */
+  def lsort(list: List[List[Symbol]]): List[List[Symbol]] = {
+    list.sortWith((a: List[Symbol], b:List[Symbol]) => a.length < b.length)
+  }
 }
