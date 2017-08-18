@@ -230,8 +230,8 @@ object Lists {
   def group(partitions: List[Int], list: List[String]): List[List[List[String]]] = {
     (for {
       i <- list combinations partitions(0)
-      j <- (list diff i) combinations(1)
-      k <- (list diff (i union j)) combinations(2)
+      j <- (list diff i) combinations partitions(1)
+      k <- (list diff (i union j)) combinations partitions(2)
     } yield List(i, j, k)).toList
   }
 }

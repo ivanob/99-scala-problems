@@ -130,8 +130,21 @@ class ListsSuite extends FunSuite {
     assert(combinations.contains(List('a, 'b, 'e)))
   }
 
-  test("P27 - Group the elements of a set into disjoint subsets."){
+  test("P27A - Group the elements of a set into disjoint subsets."){
     val combinations = Lists.group3((1 to 9).map(x => x.toString).toList)
+    assert(combinations.length == 1260)
+    //Check the length of the sublists
+    combinations.map(l => {
+      assert(l(0).length == 2)
+      assert(l(1).length == 3)
+      assert(l(2).length == 4)
+    })
+    //Check that all sublists are different
+    assert(combinations.distinct.size == combinations.size)
+  }
+
+  test("P27B - Group the elements of a set into disjoint subsets."){
+    val combinations = Lists.group(List(2,3,4), (1 to 9).map(x => x.toString).toList)
     assert(combinations.length == 1260)
     //Check the length of the sublists
     combinations.map(l => {
