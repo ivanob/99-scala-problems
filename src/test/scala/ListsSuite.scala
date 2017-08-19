@@ -156,10 +156,18 @@ class ListsSuite extends FunSuite {
     assert(combinations.distinct.size == combinations.size)
   }
 
-  test("P28 - Sorting a list of lists according to length of sublists."){
+  test("P28A - Sorting a list of lists according to length of sublists."){
     val sorted = Lists.lsort(List(List('a,'b,'c),List('d,'e),List('f)))
     assert(sorted(0).length==1)
     assert(sorted(1).length==2)
     assert(sorted(2).length==3)
+  }
+
+  test("P28B - Sorting a list of lists according to length of sublists."){
+    val sorted = Lists.lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h),
+      List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o)))
+    val expectedOrder = List(List('i, 'j, 'k, 'l), List('o), List('a, 'b, 'c),
+      List('f, 'g, 'h), List('d, 'e), List('d, 'e), List('m, 'n))
+    assert(sorted == expectedOrder)
   }
 }

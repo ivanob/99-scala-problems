@@ -241,4 +241,10 @@ object Lists {
   def lsort(list: List[List[Symbol]]): List[List[Symbol]] = {
     list.sortWith((a: List[Symbol], b:List[Symbol]) => a.length < b.length)
   }
+
+  def lsortFreq(list: List[List[Symbol]]): List[List[Symbol]] = {
+    //Firstly I get the map of frequencies for each length
+    val mapFreq = list.map(_.length).groupBy(identity).mapValues(_.length)
+    list.sortBy(x => mapFreq(x.length))
+  }
 }
