@@ -20,15 +20,33 @@ class S99Int(val i: Int){
   def isCoprimeTo(b: Int):Boolean = {
     gcd(i,b)==1
   }
+
+  /**
+    * P34 (**) Calculate Euler's totient function phi(m).
+    */
+  def totient:Int = {
+    (1 to i).filter(x => x.isCoprimeTo(i)).length
+  }
+
+  /**
+    * P35 (**) Determine the prime factors of a given positive integer.
+    */
+  def primeFactors:List[Int] = {
+    if(i.isPrime) List(i)
+    else (2 to i).find(x => x.isPrime && i%x==0) match {
+      case Some(x: Int) => x :: (i/x).primeFactors
+      case None => Nil
+    }
+  }
 }
 
 object S99Int{
   implicit def int2S99Int(i: Int): S99Int = new S99Int(i)
 
   /**
-  P32 (**) Determine the greatest common divisor of two positive integer numbers.
-    https://en.wikipedia.org/wiki/Euclidean_algorithm
-    **/
+    * P32 (**) Determine the greatest common divisor of two positive integer numbers.
+    * https://en.wikipedia.org/wiki/Euclidean_algorithm
+    */
   def gcd(a:Int, b:Int): Int = {
     if(b==0) a
     else gcd(b, a % b)
