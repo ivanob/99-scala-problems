@@ -38,6 +38,14 @@ class S99Int(val i: Int){
       case None => Nil
     }
   }
+
+  /**
+    * P36 (**) Determine the prime factors of a given positive integer (2).
+    */
+  def primeFactorMultiplicity: Map[Int, Int] = {
+    i.primeFactors.groupBy(x => x).mapValues(_.length)
+  }
+
 }
 
 object S99Int{
@@ -50,5 +58,12 @@ object S99Int{
   def gcd(a:Int, b:Int): Int = {
     if(b==0) a
     else gcd(b, a % b)
+  }
+
+  /**
+    * P39 (*) A list of prime numbers.
+    */
+  def listPrimesinRange(r: Range): List[Int] = {
+    r.filter(x => x.isPrime).toList
   }
 }

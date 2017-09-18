@@ -37,4 +37,12 @@ class ArithmeticSuit extends FunSuite {
     assert(12.primeFactors == List(2,2,3))
     assert(147.primeFactors == List(3,7,7))
   }
+
+  test("P36 - Determine the prime factors of a given positive integer (2).") {
+    assert(315.primeFactorMultiplicity == Map(5 -> 1, 7 -> 1, 3 -> 2))
+  }
+
+  test("P39 - A list of prime numbers.") {
+    assert(listPrimesinRange(7 to 31) == List(7, 11, 13, 17, 19, 23, 29, 31))
+  }
 }
