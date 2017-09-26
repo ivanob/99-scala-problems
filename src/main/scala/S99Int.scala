@@ -46,6 +46,19 @@ class S99Int(val i: Int){
     i.primeFactors.groupBy(x => x).mapValues(_.length)
   }
 
+  /**
+    * P40 (**) Goldbach's conjecture.
+    */
+    def goldbach:(Int,Int) = {
+      if(i>2 && i%2==0) {
+        val primes = listPrimesinRange(2 to i)
+        (for {
+          p1 <- primes
+          p2 <- primes
+          if(p1+p2 == i)
+        } yield (p1, p2)).head
+      }else (-1,-1)
+    }
 }
 
 object S99Int{
@@ -66,4 +79,23 @@ object S99Int{
   def listPrimesinRange(r: Range): List[Int] = {
     r.filter(x => x.isPrime).toList
   }
+
+  /**
+    * P41 (**) A list of Goldbach compositions.
+    */
+  def printGoldbachList(r: Range): List[(Int,Int)] = {
+    (for {
+      n <- r
+      if(n%2==0)
+    } yield(n.goldbach)).toList
+  }
+
+  def printGoldbachListLimited(r: Range, limit:Int): List[(Int,Int)] = {
+    (for {
+      n <- r
+      gold = n.goldbach
+      if(n%2==0 && (gold._1>limit && gold._2>limit))
+    } yield(gold)).toList
+  }
+
 }

@@ -45,4 +45,25 @@ class ArithmeticSuit extends FunSuite {
   test("P39 - A list of prime numbers.") {
     assert(listPrimesinRange(7 to 31) == List(7, 11, 13, 17, 19, 23, 29, 31))
   }
+
+  test("P40 - Goldbach's conjecture.") {
+    assert(28.goldbach == (5,23))
+  }
+
+  test("P41 - A list of Goldbach compositions.") {
+    val gold = printGoldbachList(9 to 20)
+    assert(gold.length == 6)
+    assert(gold(0) == (3,7))
+    assert(gold(1) == (5,7))
+    assert(gold(2) == (3,11))
+    assert(gold(3) == (3,13))
+    assert(gold(4) == (5,13))
+    assert(gold(5) == (3,17))
+    val gold2 = printGoldbachListLimited(1 to 2000, 50)
+    assert(gold2.length == 4)
+    assert(gold2(0) == (73, 919))
+    assert(gold2(1) == (61, 1321))
+    assert(gold2(2) == (67, 1789))
+    assert(gold2(3) == (61, 1867))
+  }
 }
